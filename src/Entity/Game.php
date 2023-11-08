@@ -40,9 +40,26 @@ class Game
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $genre = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
+
+
+    private ?bool $hasUser = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+    }
+
+    public function getHasUser()
+    {
+        return $this->hasUser;
+    }
+
+
+    public function setHasUser(bool $hasUser)
+    {
+        $this->hasUser = $hasUser;
     }
 
 
@@ -160,6 +177,18 @@ class Game
     public function setGenre(?string $genre): static
     {
         $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }

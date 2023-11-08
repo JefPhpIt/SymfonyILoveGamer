@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid m-5">
+		<div class="row justify-content-center">
+			<div class="col-6 ">
+				<h1 class="text-center">{{game.name}}</h1>
+				<p>Release :
+					{{ game.released|date('Y-m-d') }}
+				</p>
+				<img src="{{game.imagePath}}" alt="" width="100%">
+
+				{% if game.description %}
+					<p>{{game.description | raw}}</p>
+				{% endif %}
+
+				{% if userHasGame %}
+					<a href="{{path('remove_game_favorites',{id: game.id})}}" class="btn btn-primary">Remove from favorites</a>
+				{% else %}
+					<a href="/add-game/{{game.idRawgAPI}}" class="btn btn-primary">Add Favorite</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

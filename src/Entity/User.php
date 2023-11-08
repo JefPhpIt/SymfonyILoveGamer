@@ -132,4 +132,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function hasGame(Game $game): bool 
+    {
+      
+        return $this->games->exists(function($key, $element) use ($game){
+            return $game->getId() === $element->getId() || $game->getIdRawgAPI() === $element->getIdRawgAPI() ;
+        });
+    }
 }
