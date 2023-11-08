@@ -15,23 +15,18 @@
                 {% endif %}
                 <div class="card-body">
                     <h2 class="card-title">{{ game.name }}</h2>
-                    <a href="#" class="btn btn-primary">See more</a>
+                    {% if app.user %}
+                        <a href={{ path('rawg_games', {'id': game.id}) }} class="btn btn-primary">Add favorite</a>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
     </div>
     {% if previousPageUrl %}
-        <a href={{ path('rawg_games', {'newPageUrl': previousPageUrl}) }}>Previous page</a>
+        <a href={{ path('rawg_games', {'newPageUrl': previousPageUrl}) }}>Previous</a>
     {% endif %}
     {% if nextPageUrl %}
-        <a href={{ path('rawg_games', {'newPageUrl': nextPageUrl}) }}>Next page</a>
+        <a href={{ path('rawg_games', {'newPageUrl': nextPageUrl}) }}>Next</a>
     {% endif %}
-    {# {% if previous %}
-        <a href={{ path('rawg_games', parameters = previous) }}>previous</a>
-    {% endif %}
-    {% if next %}
-        <a href={{ path('rawg_games', parameters = next) }}>next</a>
-    {% endif %} #}
-    
 </div>
 {% endblock %}

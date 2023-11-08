@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,6 +30,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\ManyToMany(targetEntity: VideoGame::class)]
+    private Collection $id_videogame;
+
+    public function __construct()
+    {
+        $this->id_videogame = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -97,5 +107,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, VideoGame>
+     */
+    public function getIdVideogame(): Collection
+    {
+        return $this->id_videogame;
+    }
+
+    public function addIdVideogame(VideoGame $idVideogame): static
+    {
+        if (!$this->id_videogame->contains($idVideogame)) {
+            $this->id_videogame->add($idVideogame);
+        }
+
+        return $this;
+    }
+
+    public function removeIdVideogame(VideoGame $idVideogame): static
+    {
+        $this->id_videogame->removeElement($idVideogame);
+
+        return $this;
     }
 }
