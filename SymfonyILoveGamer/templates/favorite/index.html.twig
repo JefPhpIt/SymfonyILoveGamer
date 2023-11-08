@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Favorites{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>List of favorites - {{ email }}</h1>
+
+    <div class="row row-cols-auto">
+        {% for game in games %}
+            <div class="card col" style="width: 18rem;">
+                    <img src={{ game.backgroundImage | default("")}} class="card-img-top" alt={{ game.name }}>
+                <div class="card-body">
+                    <h2 class="card-title">{{ game.name }}</h2>
+                    {#<a href={{ path('rawg_games', {'id': game.id}) }} class="btn btn-primary">Remove favorite</a>#}
+                </div>
+            </div> 
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
