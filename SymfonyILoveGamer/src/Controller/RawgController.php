@@ -19,9 +19,9 @@ class RawgController extends AbstractController
         $url = $this->getParameter('rawg_api_url');
         $apiKey = $this->getParameter('rawg_api_key');
 
-        $nextPageUrl = $request->query->get('nextPageUrl', $url); // Use the next page URL if available
+        $newPageUrl = $request->query->get('newPageUrl', $url); // Use the next page URL if available
 
-        $response = $httpClient->request('GET', $nextPageUrl, [
+        $response = $httpClient->request('GET', $newPageUrl, [
             'query' => [
                 'key' => $apiKey,
                 // ordering?
