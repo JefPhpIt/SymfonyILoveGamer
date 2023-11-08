@@ -13,7 +13,7 @@
                     <img src={{ game.backgroundImage | default("")}} class="card-img-top" alt={{ game.name }}>
                 <div class="card-body">
                     <h2 class="card-title">{{ game.name }}</h2>
-                    {#<a href={{ path('rawg_games', {'id': game.id}) }} class="btn btn-primary">Remove favorite</a>#}
+                    <a href={{ path('app_favorite', {'id': game.id}) }} class="btn btn-primary">Remove favorite</a>
                 </div>
             </div> 
         {% endfor %}

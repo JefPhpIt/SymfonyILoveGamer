@@ -3,10 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\VideoGame;
-use App\Entity\User;
 use App\Repository\UserRepository;
 use App\Repository\VideoGameRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-use function PHPUnit\Framework\isNull;
 
 class RawgController extends AbstractController
 {
