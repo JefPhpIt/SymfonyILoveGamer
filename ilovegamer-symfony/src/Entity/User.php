@@ -34,6 +34,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: VideoGame::class)]
     private Collection $videoGame;
 
+    #[ORM\Column(length: 255)]
+    private ?string $userName = null;
+
     public function __construct()
     {
         $this->videoGame = new ArrayCollection();
@@ -129,6 +132,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeVideoGame(VideoGame $videoGame): static
     {
         $this->videoGame->removeElement($videoGame);
+
+        return $this;
+    }
+
+    public function getUserName(): ?string
+    {
+        return $this->userName;
+    }
+
+    public function setUserName(string $UserName): static
+    {
+        $this->userName = $UserName;
 
         return $this;
     }
