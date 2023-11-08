@@ -2,6 +2,10 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block auth %}
+    <a href={{ path('app_register') }}>register</a>
+{% endblock %}
+
 {% block body %}
 <form method="post">
     {% if error %}
