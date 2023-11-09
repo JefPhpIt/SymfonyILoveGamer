@@ -3,18 +3,13 @@
 {% block title %}Hello SearchController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/SymfonyILoveGamer/ilovegamer-symfony/src/Controller/SearchController.php'|file_link(0) }}">src/Controller/SearchController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/SymfonyILoveGamer/ilovegamer-symfony/templates/search/index.html.twig'|file_link(0) }}">templates/search/index.html.twig</a></code></li>
-    </ul>
+{% for game in games['results'] %}
+<div class="card" style="width: 18rem;">
+  <img src={{game.background_image}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{game.name}}</h5>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
+{% endfor %}
 {% endblock %}
