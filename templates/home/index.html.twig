@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!!!!!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class= "row mt-5">
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <form action="/video/game" class="form-inline my-2 my-lg-0" name="formulaire" method="post" >
+      <input class="form-control mr-sm-2" type="search" placeholder="Trouve ton jeu" name="games_seached" required="true" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+    </form>
+</nav>
+
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Résultats de votre recherche! ✅</h1>
+<div class="container mt-3">
+    <div class "row">        
+        {%for videoGame in videoGames%}
+        <div class "col-3 mt-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{videoGame['background_image']}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{videoGame['name']}}</h5>
+                    <p class="card-text"></p>.</p>
+                    <a href="#" class="btn btn-primary">Ajouter aux favoris </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
