@@ -1,0 +1,28 @@
+{# templates/game/favorites.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux Favoris
+{% endblock %}
+
+{% block body %}
+	<h1>Mes Jeux Favoris</h1>
+	<ul>
+		{% for game in favorites %}
+			<div class="col-3">
+				<div class="card" style="width: 18rem;">
+					<img src="{{game.imagePath}}" class="card-img-top" alt="...">
+
+					<p></p>
+					<div class="card-body">
+						<h5 class="card-title">{{game.name}}</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+					</div>
+				</div>
+			</div>
+		{% else %}
+			<li>Aucun jeu favori trouvé.</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
