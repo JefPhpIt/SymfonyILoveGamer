@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!
+{% block title %}
 {% endblock %}
 
 {% block body %}
@@ -20,8 +20,8 @@
 	<div>
 		<ul>
 			<!--li>Pour revenir à l'accueil : <a href="{{ path('app_home') }}">Accueil</a-->
-			<li>Pour revenir à l'accueil : <a href="{{ path('app_game') }}">Game</a>
-			<li>Click here to <a href="{{ path('app_logout') }}">Logout</a>
+			<li><a href="{{ path('app_game') }}">Rechercher un Jeux</a>
+			<li><a href="{{ path('app_logout') }}">Se déconnecter</a>
 
 		</ul>
 	</div>
@@ -33,10 +33,22 @@
         {# templates/game/list.html.twig #}
         
         <h4>Liste des jeux pour {{ user.email }}</h4>
-        <ul>
-            {% for game in games %}
-                <li>{{ game.name }}</li>
-            {% endfor %}
-        </ul>
+
+		<div class="row">
+			{% for game in games %}
+				<div class="col-3">
+					<div class="card" style="width: 18rem;">
+						<img src="{{game.imagePath}}" class="card-img-top" alt="...">						
+						<p >
+						</p>
+						<div class="card-body">
+							<h5 class="card-title">{{game.name}}</h5>
+							<p class="card-text">{{game.description|striptags|slice(0, 100)}}</p>							
+						</div>
+					</div>
+					<div>&nbsp;</div>
+				</div>				
+			{% endfor %}
+		</div>
 		
 	{% endblock %}

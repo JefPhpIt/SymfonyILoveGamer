@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
 <div>
     <ul>
-        <li>Pour revenir à l'accueil : <a href="{{ path('app_home') }}">Accueil</a>
-        <li>Click here to <a href="{{ path('app_login') }}">Login</a>
+        <li><a href="{{ path('app_home') }}">Accueil</a>
+        <li><a href="{{ path('app_login') }}">Se connecter</a>
 
     </ul>
 </div>
@@ -20,7 +20,7 @@
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
+        
+        <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>           
     {{ form_end(registrationForm) }}
 {% endblock %}

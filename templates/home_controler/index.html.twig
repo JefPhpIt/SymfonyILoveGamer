@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeControlerController!{% endblock %}
+{% block title %}Bienvenue sur le site du jeux!{% endblock %}
 
 {% block body %}
 <style>
@@ -16,8 +16,8 @@
         <!--li>Your controller at <code><a href="{{ 'C:/laragon/www/love_game/src/Controller/HomeControlerController.php'|file_link(0) }}">src/Controller/HomeControlerController.php</a></code></li>
         <li>Your template at <code><a href="{{ 'C:/laragon/www/love_game/templates/home_controler/index.html.twig'|file_link(0) }}">templates/home_controler/index.html.twig</a></code></li-->
 
-        <li>Click here to <a href="{{ path('app_login') }}">Login</a>
-        <li>Click here to <a href="{{ path('app_register') }}">Register</a>
+        <li><a href="{{ path('app_login') }}">Se connecter</a>
+        <li><a href="{{ path('app_register') }}">S'inscrire</a>
 
     </ul>
 </div>  

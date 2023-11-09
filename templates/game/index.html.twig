@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello GameController!
+{% block title %}
 {% endblock %}
 
 {% block body %}
@@ -20,14 +20,15 @@
 	<div>
 		<ul>
 			<!--li>Pour revenir à l'accueil : <a href="{{ path('app_home') }}">Accueil</a-->
-			<li>Click here to <a href="{{ path('list_game', {id: user.id}) }}">Liste des jeux</a>
-			<li>Click here to <a href="{{ path('app_logout') }}">Logout</a>
+			<li><a href="{{ path('list_game', {id: user.id}) }}">Liste des mes jeux favoris</a>
+			<li><a href="{{ path('app_logout') }}">Se déconnecter</a>
 
 		</ul>
 	</div>
 
 	<div class="example-wrapper">
-		{{ form(form) }}
+		{{ form(form, {attr: {class: 'btn-lg btn-primary'}}) }}
+
 		</div>
 
 		{% if results %}
