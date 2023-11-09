@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!
+{% endblock %}
+
+{% block body %}
+
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+	<div>
+		<ul>
+			<!--li>Pour revenir à l'accueil : <a href="{{ path('app_home') }}">Accueil</a-->
+			<li>Pour revenir à l'accueil : <a href="{{ path('app_game') }}">Game</a>
+			<li>Click here to <a href="{{ path('app_logout') }}">Logout</a>
+
+		</ul>
+	</div>
+
+	<div class="example-wrapper">
+		
+		</div>
+
+        {# templates/game/list.html.twig #}
+        
+        <h4>Liste des jeux pour {{ user.email }}</h4>
+        <ul>
+            {% for game in games %}
+                <li>{{ game.name }}</li>
+            {% endfor %}
+        </ul>
+		
+	{% endblock %}
