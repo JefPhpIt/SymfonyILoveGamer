@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GameController!
+{% endblock %}
+
+{% block body %}
+	{{ form(form) }}
+
+
+    {% for game in gamesResults %}
+
+
+    <p>{{game.name}}</p>
+    <a href="/addgame/{{game.id}}"> Ajouter aux favoris</a>
+
+    {% endfor %}
+    
+{% endblock %}
