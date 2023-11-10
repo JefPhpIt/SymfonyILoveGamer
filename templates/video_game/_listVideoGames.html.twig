@@ -1,0 +1,40 @@
+<div class="row" id="list-video-game">
+    <div class="col-12 mt-5">
+        <div class="card border-0 shadow p-3 mb-5 bg-body-tertiary rounded w-100">
+            <div class="card-body" style="height: auto !important;">
+                <div class="row">
+                    {% if user.videoGames | length == 0 %}
+                        <div class="col-12 d-flex justify-content-center">
+                            Pas encore de jeux vidéo ajouté ...
+                        </div>
+                    {% else %}
+                        {% for game in user.videoGames %}
+                            <div class="col-3 p-2">
+                                <div class="card w-100">
+                                    <img src="{{ game.imgUrl }}" class="card-img-top" alt="...">
+                                    <div class="card-body" style="height: 130px">
+                                        <h5 class="card-title">{{ game.name }}</h5>
+                                        {% if game.platfomrs|length > 0 %}
+                                            <b class="fs-8">Plateforme : </b>
+                                            <p class="card-text">{{ game.platfomrs[0] }}</p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer border-top-0 bg-white">
+                                        <a href="#"
+                                           hx-post="{{ path('app_video_game_delete', {'id': game.id}) }}"
+                                           hx-target="#list-video-game"
+                                           hx-swap="outerHTML"
+                                           class="btn btn-danger">
+                                            Supprimer
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}I ❤️Gamer - Mes jeux vidéo{% endblock %}
+
+{% block body %}
+    <!-- Search -->
+    <div class="col-12 mt-5">
+        {{ form_start(search)}}
+        {{ form_widget(search.search, {'attr': {'placeholder': 'Recherche' | raw}}) }}
+        {{ form_end(search) }}
+    </div>
+
+    <!-- Search result -->
+    <div id="search-results"></div>
+
+    <!-- Video Games list -->
+    <div id="list-video-game">
+        {% include 'video_game/_listVideoGames.html.twig' %}
+    </div>
+
+{% endblock %}

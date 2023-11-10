@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+<div class="col-6">
+    {{ form_row(form.lastname) }}
+</div>
+<div class="col-6">
+    {{ form_row(form.firstname) }}
+</div>
+<div class="col-12">
+    {{ form_row(form.email) }}
+</div>
+{% if app.request.get('_route') == 'app_user_show' %}
+    <a href="{{ path('app_user_edit') }}" class="btn btn-primary">Éditer</a>
+{% else %}
+    <button class="btn btn-success">Mettre à jour</button>
+{% endif %}
+
+{{ form_end(form) }}

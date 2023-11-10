@@ -1,0 +1,27 @@
+<div id="search-results" style="height: 400px; overflow-y: scroll" class="mt-4">
+    <div class="row">
+        {% for game in games  %}
+            <div class="col-3 p-2">
+                <div class="card w-100">
+                    <img src="{{ game['background_image'] }}" class="card-img-top" alt="...">
+                    <div class="card-body" style="height: 130px">
+                        <h5 class="card-title">{{ game['name'] }}</h5>
+                        {% if game['platforms']|length > 0 %}
+                            <b class="fs-8">Plateforme : </b>
+                            <p class="card-text">{{ game['platforms'][0]['platform']['name'] }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer border-top-0 bg-white">
+                        <a href="#"
+                           hx-post="{{ path('app_video_game_add', {'id': game['id']}) }}"
+                           hx-target="#list-video-game"
+                           hx-swap="outerHTML"
+                           class="btn btn-primary">
+                            Ajouter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

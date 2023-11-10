@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}I ❤️Gamer - Mon Compte {% endblock %}
+
+{% block body %}
+    <div class="col-12 mt-5">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    Profile mise à jour
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <div class="card border-0 shadow p-3 mb-5 bg-body-tertiary rounded w-100">
+            <div class="card-heard">
+                <h1>{{ user.firstname|capitalize }} {{ user.lastname|upper }}</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% include'user/_form.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}

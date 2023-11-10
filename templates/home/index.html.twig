@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}I ❤️Gamer - Bienvenue {{ user.lastname }} {{ user.firstname }}{% endblock %}
+
+{% block body %}
+    <div class="col-12 d-flex justify-content-center mt-5">
+        <div class="card border-0 shadow p-3 mb-5 bg-body-tertiary rounded w-100">
+            <div class="card-body">
+                <div class="row">
+                    {% if user.videoGames | length == 0 %}
+                        <div class="col-12 d-flex justify-content-center">
+                            <p>Pas encore de jeux vidéo ajouté ...</p>
+                        </div>
+                    {% else %}
+                        <div class="col-6">
+                            <h2>Mes derniers jeux ajouté</h2>
+                            <ul>
+                                {% for videoGame in user.videoGames  %}
+                                    <li>
+                                        {{ videoGame.name }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h2>Nombre de jeux</h2>
+                            <ul>
+                                <li>{{ user.videoGames|length }}</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h2>Mes supports de jeux</h2>
+                            <ul>
+                                {% for platform in platforms %}
+                                    <li>{{ platform['name'] }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h2>Nombre de support de jeux</h2>
+                            <ul>
+                                <li>{{ platforms|length }}</li>
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <div class="col-12 d-flex justify-content-center mt-3">
+                        <a href="{{ path('app_video_game') }}">
+                            <button class="btn btn-primary">Ajouter des jeux</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
