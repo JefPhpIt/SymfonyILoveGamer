@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil
+{% endblock %}
+
+{% block body %}
+	{{ form(searchForm) }}
+		<div class="container">
+			<div class="row">
+				{% for videoGame in videoGames %}
+					<div class="col-3 my-3">
+						<div class="card" style="width: 18rem;">
+							<img src="{{videoGame.background_image}}" class="card-img-top" alt="...">
+							<div class="card-body">
+								<h5 class="card-title">{{videoGame.name}}</h5>
+								<h6 class="card-title">Platform</h5>
+								{% for platform in videoGame.platforms %}
+									<span class="card-text">{{platform.platform.name}}</span>
+								{% endfor %}
+								<h6 class="card-title">Score</h5>
+								<p class="card-text">{{videoGame.score|number_format}}</p>
+								<div style= "display: block; margin: auto; width: fit-content;">
+									<a href="#" class="btn btn-primary">Add to favorites</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+{% endblock %}
