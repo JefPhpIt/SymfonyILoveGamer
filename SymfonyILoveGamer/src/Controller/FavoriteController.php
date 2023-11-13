@@ -45,7 +45,7 @@ class FavoriteController extends AbstractController
     public function removeFavorite(int $id, EntityManagerInterface $entityManager, VideoGameRepository $videoGameRepository, UserRepository $userRepository): bool
     {
         // check if game isnt already in database
-        $game = $videoGameRepository->findOneBy(['id_API' => $id]);
+        $game = $videoGameRepository->findOneBy(['id' => $id]);
         // dd($game);
 
         if(is_null($game))
