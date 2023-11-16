@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
 
 class ApiController extends AbstractController
 {
@@ -48,7 +49,7 @@ return new JsonResponse(array_map(
 public function GameListcsv(VideoGameRepository $videoGameRepository)
 {
 $videoGames = $videoGameRepository->findAll();
-return new JsonResponse(array_map(
+ return new CsvEncoder(array_map(
     function(VideoGame $videoGame) {
         return [
             'id' => $videoGame->getId(),
@@ -57,5 +58,14 @@ return new JsonResponse(array_map(
     },
     $videoGames
 ));
+// return new JsonResponse(array_map(
+//     function(VideoGame $videoGame) {
+//         return [
+//             'id' => $videoGame->getId(),
+//             'name' => $videoGame->getName()
+//         ];
+//     },
+//     $videoGames
+// ));
 }
 }
