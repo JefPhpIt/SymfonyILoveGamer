@@ -5,6 +5,9 @@
 {% block body %}
     <!-- Search -->
     <div class="col-12 mt-5">
+        {{ form_start(PlatformFilter)}}
+        {# {{ form_widget(search.search, {'attr': {'placeholder': 'Recherche' | raw}}) }} #}
+        {{ form_end(PlatformFilter) }}
         {{ form_start(search)}}
         {{ form_widget(search.search, {'attr': {'placeholder': 'Recherche' | raw}}) }}
         {{ form_end(search) }}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Platform;
 use App\Entity\VideoGame;
 use App\Form\SearchType;
+use App\Form\VideoGamePlatformFilterType;
 use App\Repository\PlatformRepository;
 use App\Repository\UserRepository;
 use App\Repository\VideoGameRepository;
@@ -24,9 +25,11 @@ class VideoGameController extends AbstractController
     public function index(): Response
     {
         $search = $this->createForm(SearchType::class);
+        $PlatformFilter = $this->createForm(VideoGamePlatformFilterType::class);
         return $this->render('video_game/index.html.twig', [
             'user' => $this->getUser(),
-            'search' => $search
+            'search' => $search,
+            'PlatformFilter' => $PlatformFilter
         ]);
     }
 
@@ -41,6 +44,24 @@ class VideoGameController extends AbstractController
         ]);
 
     }
+
+    #[Route('/filter', name: 'app_video_game_platform_filter', methods: ['POST'])]
+    // public function filterbyPlatform(Request $request)
+    // {
+    //     return $this->createQueryBuilder('u')
+    //     ->select('p.name')
+    //     ->innerJoin('u.videoGames', 'vg')
+    //     ->innerJoin('vg.platfomrs', 'p')
+    //     ->where('u = :user')
+    //     ->setParameter('user', $user)
+    //     ->groupBy('p.name')
+    //     ->getQuery()
+    //     ->getResult();
+        
+    //     // return $this->render('video_game/filter.html.twig', [
+    //     //     'games' => $games['Filter']
+    //     // ]);
+    // }
 
     #[Route('/add-video-game/{id}', name: 'app_video_game_add', methods: ['POST'])]
     public function add(VideoGameService $videoGameService, VideoGameRepository $videoGameRepository,

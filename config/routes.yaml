@@ -3,3 +3,24 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+apijson,apixml,apicsv:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# apixml:
+#     resource:
+#         path: ../src/Controller/
+#         namespace: App\Controller
+#     type: attribute
+
+# apicsv:
+#     resource:
+#         path: ../src/Controller/
+#         namespace: App\Controller
+#     type: attribute
+
+
+    
