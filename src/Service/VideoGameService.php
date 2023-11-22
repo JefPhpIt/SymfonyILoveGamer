@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class VideoGameService extends AbstractController
+class VideoGameService extends AbstractController implements videoGameServiceInterface
 {
     public $apiRawg;
     public function __construct(public HttpClientInterface $client, ParameterBagInterface $parameterBag)
